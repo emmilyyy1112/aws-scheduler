@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"  # Change to your region
-}
-
 resource "aws_iam_role" "lambda_role" {
   name = "ecs_lambda_role"
   assume_role_policy = jsonencode({
@@ -25,7 +21,8 @@ resource "aws_iam_policy" "ecs_policy" {
         Action = [
           "ecs:ListTasks",
           "ecs:StopTask",
-          "ecs:RunTask"
+          "ecs:RunTask",
+          "iam:PassRole"
         ],
         Effect = "Allow",
         Resource = "*"

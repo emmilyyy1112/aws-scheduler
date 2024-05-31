@@ -16,6 +16,8 @@ def lambda_handler(event, context):
     cluster_name = 'smx-cluster-svc-dev'
     task_definitions = ['your-task-definitions']  # Add your task definitions here
 
+    
+
     if event['action'] == 'stop':
         stop_ecs_tasks(cluster_name)
     elif event['action'] == 'start':
